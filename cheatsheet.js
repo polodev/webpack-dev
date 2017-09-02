@@ -11,3 +11,10 @@ output: {
   path: path.resolve(__dirname, 'dist'),
   filename: 'bundle.js'
 }
+#3
+common js 
+>> module.exports = {}
+>>var variable = require('moduleName')
+es2015
+>>export default
+
