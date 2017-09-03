@@ -17,4 +17,13 @@ common js
 >>var variable = require('moduleName')
 es2015
 >>export default
-
+#4 rules > uses work right to left
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader']
+      }
+    ]
+  }
+#5
