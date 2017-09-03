@@ -26,7 +26,7 @@ es2015
       }
     ]
   }
-#5
+#5 converting es6 to es5
 npm i babel-core babel-loader
 rules: [
       { 
@@ -41,6 +41,24 @@ npm i --save-dev babel-preset-env
 {
   "presets": ["env"]
 }
+
+#6using plugin based on condition
+package.json/scripts  >> "prod": "NODE_ENV=production webpack",
+webpack.config.js
+var inProduction = process.env.NODE_ENV === 'production'
+plugins: []
+if (inProduction) {
+  module.exports.plugins.push(new webpack.optimize.UglifyJsPlugin())
+}
+
+#7 sass loader
+yarn add sass-loader node-sass //The sass-loader requires node-sass and webpack as peerDependency
+rules: [
+  {
+    test: /\.s[ac]ss$/,
+    use: ['style-loader', 'css-loader', 'sass-loader']
+  },
+]
 
 
 
