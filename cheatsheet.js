@@ -58,7 +58,39 @@ rules: [
     test: /\.s[ac]ss$/,
     use: ['style-loader', 'css-loader', 'sass-loader']
   },
+  ]
+
+#8 dedicated file 
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
+module: {
+  rules: [
+    {
+      test: /\.s[ac]ss$/,
+      use: ExtractTextPlugin.extract({
+        use: ['css-loader', 'sass-loader'],
+        fallback: 'style-loader'
+      }) 
+    }
+  ]
+}
+plugins: [
+      new ExtractTextPlugin("[name].css"),
 ]
+
+//change the entry
+entry: {
+  app: ['./src/main.js', './src/main.scss']
+},
+
+// to minimize css 
+plugins: [
+      new webpack.LoaderOptionsPlugin({
+          minimize: inProduction
+        })
+]
+
+
+
 
 
 
