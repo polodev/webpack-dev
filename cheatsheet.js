@@ -27,3 +27,22 @@ es2015
     ]
   }
 #5
+npm i babel-core babel-loader
+rules: [
+      { 
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loader: "babel-loader"
+      }
+]
+
+npm i --save-dev babel-preset-env
+.babelrc 
+{
+  "presets": ["env"]
+}
+
+
+
+
+
